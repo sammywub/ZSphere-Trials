@@ -1,5 +1,5 @@
 export const SEPOLIA_CHAIN_ID = 11155111;
-export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
+export const ZERO_ADDRESS = '0x00f4F4386a9f1FDFA4Ca4a32C324036c08a35E51';
 
 // Replace with the deployed ZSphereGame address on Sepolia after deployment.
 export const CONTRACT_ADDRESS = ZERO_ADDRESS;
