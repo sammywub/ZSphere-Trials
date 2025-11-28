@@ -6,7 +6,7 @@ import { useZamaInstance } from '../hooks/useZamaInstance';
 import { CONTRACT_ABI, CONTRACT_ADDRESS, CONTRACT_READY, SEPOLIA_CHAIN_ID } from '../config/contracts';
 import '../styles/GameApp.css';
 
-type PlayerState = readonly [string, string, string, string, bigint, boolean];
+type PlayerState = readonly [string, string, string, string, number, boolean];
 
 type DecryptedState = {
   score?: number;
