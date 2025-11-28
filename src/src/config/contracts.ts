@@ -1,16 +1,18 @@
 export const SEPOLIA_CHAIN_ID = 11155111;
-export const ZERO_ADDRESS = '0x00f4F4386a9f1FDFA4Ca4a32C324036c08a35E51';
+export const CONTRACT_ADDRESS = '0x00f4F4386a9f1FDFA4Ca4a32C324036c08a35E51';
+export const CONTRACT_READY = true;
 
-// Replace with the deployed ZSphereGame address on Sepolia after deployment.
-export const CONTRACT_ADDRESS = ZERO_ADDRESS;
-export const CONTRACT_READY = CONTRACT_ADDRESS !== ZERO_ADDRESS;
-
-// Generated ABI from ZSphereGame contract
+// Generated ABI from deployments/sepolia/ZSphereGame.json
 export const CONTRACT_ABI = [
   {
     "inputs": [],
     "stateMutability": "nonpayable",
     "type": "constructor"
+  },
+  {
+    "inputs": [],
+    "name": "ZamaProtocolUnsupported",
+    "type": "error"
   },
   {
     "anonymous": false,
@@ -67,6 +69,19 @@ export const CONTRACT_ABI = [
     ],
     "name": "RoundPlayed",
     "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "confidentialProtocolId",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
   },
   {
     "inputs": [
