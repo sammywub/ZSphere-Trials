@@ -132,7 +132,7 @@ contract ZSphereGame is ZamaEthereumConfig {
         );
     }
 
-    function _winningAnswer(euint32 bigBallChoice) private view returns (euint32) {
+    function _winningAnswer(euint32 bigBallChoice) private returns (euint32) {
         ebool isFirst = FHE.eq(bigBallChoice, FHE.asEuint32(0));
         ebool isSecond = FHE.eq(bigBallChoice, FHE.asEuint32(1));
         ebool isThird = FHE.eq(bigBallChoice, FHE.asEuint32(2));
@@ -142,7 +142,7 @@ contract ZSphereGame is ZamaEthereumConfig {
         return FHE.select(isFirst, _encryptedAnswers[0], answerForSecond);
     }
 
-    function _isValidBigBall(euint32 bigBallChoice) private pure returns (ebool) {
+    function _isValidBigBall(euint32 bigBallChoice) private returns (ebool) {
         ebool isZero = FHE.eq(bigBallChoice, FHE.asEuint32(0));
         ebool isOne = FHE.eq(bigBallChoice, FHE.asEuint32(1));
         ebool isTwo = FHE.eq(bigBallChoice, FHE.asEuint32(2));
@@ -151,7 +151,7 @@ contract ZSphereGame is ZamaEthereumConfig {
         return FHE.or(FHE.or(isZero, isOne), FHE.or(isTwo, isThree));
     }
 
-    function _isValidSmallBall(euint32 smallBallChoice) private pure returns (ebool) {
+    function _isValidSmallBall(euint32 smallBallChoice) private returns (ebool) {
         ebool isOne = FHE.eq(smallBallChoice, FHE.asEuint32(1));
         ebool isTwo = FHE.eq(smallBallChoice, FHE.asEuint32(2));
         ebool isThree = FHE.eq(smallBallChoice, FHE.asEuint32(3));
@@ -159,7 +159,7 @@ contract ZSphereGame is ZamaEthereumConfig {
         return FHE.or(isOne, FHE.or(isTwo, isThree));
     }
 
-    function _applyPenalty(euint32 score) private view returns (euint32) {
+    function _applyPenalty(euint32 score) private returns (euint32) {
         ebool hasEnough = FHE.ge(score, _encryptedPenalty);
         euint32 reduced = FHE.sub(score, _encryptedPenalty);
         return FHE.select(hasEnough, reduced, FHE.asEuint32(0));
